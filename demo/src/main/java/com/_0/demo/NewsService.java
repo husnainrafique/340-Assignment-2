@@ -1,5 +1,8 @@
 package com._0.demo.service;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com._0.demo.model.NewsArticle;
 import com._0.demo.model.Source;
 import org.springframework.stereotype.Service;
@@ -9,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@RestController
 public class NewsService {
 
     private static final String API_KEY = "a96dc257b0c74e109517ff33e477cd78";  // Replace with your API Key
@@ -44,5 +48,10 @@ public class NewsService {
         }
 
         return newsArticles;
+    }
+
+    @GetMapping("/trending")
+    public List<NewsArticle> getTrendingNews() {
+        return fetchNews();
     }
 }

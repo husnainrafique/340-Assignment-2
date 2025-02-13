@@ -22,4 +22,9 @@ public class NewsController {
     public List<NewsArticle> getNews() {
         return newsService.fetchNews();
     }
+
+    @GetMapping("/trending")
+    public List<NewsArticle> getTrendingNews() {
+        return newsService.getTrendingNews();
+    }
 }

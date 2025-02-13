@@ -1,5 +1,7 @@
 package com._0.demo.model;
 
+import java.util.Comparator;
+
 public class NewsArticle {
     private String title;
     private String description;
@@ -8,6 +10,7 @@ public class NewsArticle {
     private String publishedAt;
     private String content;
     private Source source;
+
 
     // Constructor
     public NewsArticle() {}
@@ -68,4 +71,6 @@ public class NewsArticle {
     public void setSource(Source source) {
         this.source = source;
     }
+    // Comparator for sorting news articles by published date (trending feature)
+    public static Comparator<NewsArticle> byPublishedDateDescending = Comparator.comparing(NewsArticle::getPublishedAt).reversed();
 }
